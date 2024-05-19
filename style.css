@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* { 
+    padding: 0;
+    margin: 0;
+    font-family: 'inter', sans-serif ;
+}
+
+body{
+    background-color: #242128;
+}
+
+.formulario-registrar{
+    width: 315px;
+    height:430px;
+    margin-left: 780px;
+    margin-top: 300px;
+    border: 1px solid #000000;
+    box-shadow: 4px 4px #323232;
+    background-color: #6e6ce2;
+    border-radius: 15px;
+}
+
+.form-group{
+    padding-left: 28px;
+    margin-top: 8px;
+}
+
+.form_entrar{
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 4px 4px #323232;
+}
+
+.form_entrar::placeholder{
+    padding-left: 2px;
+    color: #000000;
+}
+
+.resgistra{
+    padding-left: 95px;
+    text-decoration: underline;
+    color: #000000;
+    z-index: 2;
+    margin-top: -11px;
+}
+
+.bnt_confirmar_registrar{
+    margin-left: 113px;
+    background-color: 1px solid black;
+    box-shadow: 4px 4px #0e0d0d ;
+    width: 94px;
+    color: #0a0a0a;
+    border-radius: 7px;
+    font-size: 17px;
+}
+
+
+
+  .btn_close_registrar{
+    z-index: 1;
+    margin-left: 180px;
+    color: #000000;
+  }
