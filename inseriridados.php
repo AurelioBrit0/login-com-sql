@@ -1,5 +1,4 @@
 <?php
-
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -10,6 +9,6 @@ $insert = "insert into registrar (nome, email, senha) values ('$nome', '$email',
 
 mysqli_query($conexao, $insert);
 
-header("Location: index.html");
+header("Location: index.php");
 
 ?>

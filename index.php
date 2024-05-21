@@ -1,3 +1,11 @@
+<?php
+    $corDeFundo = "#ffffff"; // Branco como padrão
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $corDeFundo = $_POST['cor'] ?? "#ffffff";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +15,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"  type="text/css" href="style.css">
+
+    <style>
+        body {
+            background-color: <?php echo htmlspecialchars($corDeFundo); ?>;
+        }
+
+        .tabela{
+            position: relative;
+            margin-top: 60px;
+            margin-left: -150px;
+           padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #000000;
+            box-shadow: 4px 4px #323232;
+            background-color: #6e6ce2;
+            width: 730px;
+            height: auto;
+           
+        }
+
+        .tabela while{
+            padding-left: 10px;
+        }
+
+        .tabela1{
+            padding: 5px;
+            padding-left: 10px;
+        }
+
+       .nome{
+        margin-top: 10px;
+       }
+
+       .tabelinha{
+        margin-left: -10px;
+       }
+
+
+    </style>
+
     <title>Registrar</title>
 </head>
+
+
 
 
 
@@ -45,7 +95,39 @@
             <button class="bnt_confirmar_registrar" type="submit">Confirmar!</button>
         </form>
 
+        <div class="tabela">
+        <table >
+            <tr>
+                <td class="tabela1"><b>Nome</b></td>
+                <td class="tabela1"><b>Email</b></td>
+                <td class="tabela1"><b>Senha</b></td>
+            </tr>
 
+        <div class="tabelinha">
+            <?php
+                $conexao = mysqli_connect("localhost", "root", "", "login");
+                $consulta = "select * from registrar";
+                $resultado = mysqli_query($conexao,$consulta);
+
+                while ($linha = mysqli_fetch_array($resultado)){
+                    $nome = $linha["nome"];
+                    $email = $linha["email"];
+                    $senha = $linha["senha"];
+                    echo "
+                    <tr>
+                        <td>$nome</td>
+                        <td>$email</td>
+                        <td>$senha</td>
+                    </tr>
+                    ";
+                }
+
+            ?>
+
+        </div>
+            
+        </table>
+        </div>
     </div>
 
 
