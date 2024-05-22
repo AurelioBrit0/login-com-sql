@@ -13,7 +13,7 @@ body{
     width: 315px;
     height:430px;
     margin-left: 780px;
-    margin-top: 300px;
+    margin-top: 150px;
     border: 1px solid #000000;
     box-shadow: 4px 4px #323232;
     background-color: #6e6ce2;
@@ -66,4 +66,5 @@ body{
     padding: 6px 10px;
     background-color: #7e97f1;
     border-radius: 10px;
+   text-decoration: underline;
  }
