@@ -24,8 +24,8 @@
 
         .tabela{
             position: relative;
-            margin-top: 60px;
-            margin-left: -150px;
+            margin-top: 100px;
+            margin-left: 600px;
            padding: 20px;
             border-radius: 5px;
             border: 1px solid #000000;
@@ -33,7 +33,10 @@
             background-color: #6e6ce2;
             width: 730px;
             height: auto;
+           
         }
+
+
     </style>
 
     <title>Registrar</title>
@@ -45,37 +48,7 @@
 
 <body>
 
-
-
-    <div class="formulario-registrar">
-
-        <form action="inseriridados.php" class="form" method="post"></br>
-
-            <div class="resgistra">
-                <a class="btn_close_registrar" href="#"><img src="img/x.png"></a>
-                <h2> Registrar </h2>
-            </div></br>
-
-
-
-            <div class="form-group">
-                <input class="form_entrar" type="text" id="nome" name="nome" placeholder="Nome" required="">
-            </div></br>
-
-            <div class="form-group">
-                <input class="form_entrar" type="text" id="email" name="email" placeholder="Email" required="">
-            </div></br>
-
-
-            <div class="form-group">
-                <input class="form_entrar" type="password" id="senha" name="senha" placeholder="Senha" required="">
-            </div> </br></br>
-
-
-            <button class="bnt_confirmar_registrar" type="submit">Confirmar!</button>
-        </form>
-
-        <div class="tabela">
+<div class="tabela">
         <table >
             <tr>
                 <td><b>Nome</b></td>
