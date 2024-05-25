@@ -9,6 +9,6 @@ $insert = "insert into registrar (nome, email, senha) values ('$nome', '$email',
 
 mysqli_query($conexao, $insert);
 
-header("Location: index.php");
+header("Location: cadastro.php");
 
 ?>

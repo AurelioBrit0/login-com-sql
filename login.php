@@ -7,7 +7,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -19,10 +19,11 @@
 
     <style>
         body {
-            background-color: <?php echo htmlspecialchars($corDeFundo); ?>;
+            background-color: <?php echo htmlspecialchars($corDeFundo);
+            ?>;
         }
 
-        .tabela{
+        .tabela {
             position: relative;
             margin-top: 60px;
             margin-left: -200px;
@@ -36,7 +37,7 @@
         }
     </style>
 
-    <title>Registrar</title>
+    <title>login</title>
 </head>
 
 
@@ -47,19 +48,21 @@
 
 
 
-    <div class="formulario-registrar">
+    <div class="formulario-registrar" style=" margin-top: 300px;">
 
-        <form action="inseriridados.php" class="form" method="post"></br>
+        <form action="resultado.php" class="form" method="post"></br>
 
             <div class="resgistra">
-                <a class="btn_close_registrar" href="#"><img src="img/x.png"></a>
-                <h2> Registrar </h2>
+                <a class="btn_close_registrar" href="index.html"><img src="img/x.png"></a>
+              <div class="letra-login" style="margin-left: 18px;"> 
+                <h2 > Login </h2>
+                </div>
             </div></br>
 
 
 
             <div class="form-group">
-                <input class="form_entrar" type="text" id="nome" name="nome" placeholder="Nome" required="">
+                <input class="form_entrar" type="text" id="nome" name="nome" placeholder="Usuário" required="">
             </div></br>
 
             <div class="form-group">
@@ -72,42 +75,10 @@
             </div> </br></br>
 
 
-            <button class="bnt_confirmar_registrar" type="submit">Confirmar!</button>
+            <button class="bnt_confirmar_registrar" type="submit" name="submit">Confirmar!</button>
         </form>
 
-        <div class="tabela">
-            <table>
-                <tr>
-                    <td><b>Nome</b></td>
-                    <td><b>Email</b></td>
-                    <td><b>Senha</b></td>
-                </tr>
-
-
-                <?php
-                $conexao = mysqli_connect("localhost", "root", "", "login");
-                $consulta = "select * from registrar";
-                $resultado = mysqli_query($conexao,$consulta);
-
-                while ($linha = mysqli_fetch_array($resultado)){
-                    $nome = $linha["nome"];
-                    $email = $linha["email"];
-                    $senha = $linha["senha"];
-                    echo "
-                    <tr>
-                        <td>$nome</td>
-                        <td>$email</td>
-                        <td>$senha</td>
-                    </tr>
-                    ";
-                }
-
-            ?>
-
-            </table>
-        </div>
-
-
+        
 
 
 

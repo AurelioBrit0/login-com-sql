@@ -1,10 +1,4 @@
-<?php
-    $corDeFundo = "#ffffff"; // Branco como padrão
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $corDeFundo = $_POST['cor'] ?? "#ffffff";
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,25 +11,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <style>
-        body {
-            background-color: <?php echo htmlspecialchars($corDeFundo); ?>;
-        }
-
-        .tabela{
-            position: relative;
-            margin-top: 100px;
-            margin-left: 600px;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #000000;
-            box-shadow: 4px 4px #323232;
-            background-color: #6e6ce2;
-            width: 730px;
-            height: auto;
-
-        }
-    </style>
+    
 
     <title>Registrar</title>
 </head>
@@ -45,33 +21,51 @@
 
 
 <body>
-
-    <div class="tabela">
-        <table>
-            <tr>
-                <td><b>Nome</b></td>
-                <td><b>Email</b></td>
-                <td><b>Senha</b></td>
-            </tr>
-
+<?php
+error_reporting(E_ERROR)
+?>
+    
 
             <?php
-                $conexao = mysqli_connect("localhost", "root", "", "login");
-                $consulta = "select * from registrar";
-                $resultado = mysqli_query($conexao,$consulta);
 
-                while ($linha = mysqli_fetch_array($resultado)){
-                    $nome = $linha["nome"];
-                    $email = $linha["email"];
-                    $senha = $linha["senha"];
-                    echo "
-                    <tr>
-                        <td>$nome</td>
-                        <td>$email</td>
-                        <td>$senha</td>
-                    </tr>
-                    ";
+             //print_r($_REQUEST);
+            if(isset($_POST['submit']))
+            {
+                //acessa
+                $conexao = mysqli_connect("localhost", "root", "", "login");
+                $consulta = "SELECT * FROM registrar WHERE nome = '$nome' and email = '$email' and senha = '$senha'";
+                $resultado = mysqli_query($conexao,$consulta);
+                
+                $nome = $_POST["nome"];
+                $email = $_POST["email"];
+                $senha = $_POST["senha"];
+
+               print_r('nome: ' . $nome);
+               print_r('<br>');
+                print_r('email: ' . $email);
+               print_r('<br>');
+                print_r('senha: ' . $senha);
+               print_r('<br>');
+               print_r('<br>');
+
+                print_r($resultado);
+               print_r($consulta);
+
+                if(mysqli_num_rows($resultado) < 1)
+                {
+                    print_r('Não existe');
                 }
+                else
+                {
+                    print_r('Existe');
+                }
+
+            }
+            else
+            {
+                //não acessa
+                header('Location: login.php');
+            }
 
             ?>
 
