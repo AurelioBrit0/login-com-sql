@@ -31,6 +31,10 @@ error_reporting(E_ERROR)
              //print_r($_REQUEST);
             if(isset($_POST['submit']))
             {
+                $nome = $_POST["nome"];
+                $email = $_POST["email"];
+                $senha = $_POST["senha"];
+                
                 //acessa
                 $conexao = mysqli_connect("localhost", "root", "", "login");
                 $consulta = "SELECT * FROM registrar WHERE nome = '$nome' and email = '$email' and senha = '$senha'";
