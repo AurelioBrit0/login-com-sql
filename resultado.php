@@ -28,6 +28,8 @@ error_reporting(E_ERROR)
 
             <?php
 
+            session_start();               
+
              //print_r($_REQUEST);
             if(isset($_POST['submit']))
             {
@@ -40,28 +42,32 @@ error_reporting(E_ERROR)
                 $consulta = "SELECT * FROM registrar WHERE nome = '$nome' and email = '$email' and senha = '$senha'";
                 $resultado = mysqli_query($conexao,$consulta);
                 
-                $nome = $_POST["nome"];
-                $email = $_POST["email"];
-                $senha = $_POST["senha"];
+            
+                
 
-               print_r('nome: ' . $nome);
-               print_r('<br>');
-                print_r('email: ' . $email);
-               print_r('<br>');
-                print_r('senha: ' . $senha);
-               print_r('<br>');
-               print_r('<br>');
+               // print_r('nome: ' . $nome);
+               //print_r('<br>');
+               // print_r('email: ' . $email);
+               // print_r('<br>');
+               // print_r('senha: ' . $senha);
+               //print_r('<br>');
+               //print_r('<br>');
 
-                print_r($resultado);
-               print_r($consulta);
+                
 
                 if(mysqli_num_rows($resultado) < 1)
                 {
-                    print_r('Não existe');
+                    unset($_SESSION['nome']);
+                    unset($_SESSION['email']);
+                    unset($_SESSION['senha']);
+                    header('Location: login.php ');
                 }
                 else
                 {
-                    print_r('Existe');
+                    $_SESSION['nome'] = $nome;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['senha'] = $senha;
+                   header('Location: sistema.php');
                 }
 
             }
